@@ -1,0 +1,24 @@
+*** CMOS: transfer characterstics ***
+
+*#destroy all
+*#run
+*#let Icross=-i(vdd)
+*#plot Icross
+*#plot vout
+
+.option scale=90n
+.dc vin 0 1 1m
+
+vdd	vdd	0	DC	1
+Vin	vin	0	DC	0	
+
+
+M1	vout	vin	0	0	NMOS w=6 l=4 ad=36 pd=24 as=36 ps=24	
+M2	vout	vin	vdd	vdd	PMOS w=6 l=4 ad=36 pd=24 as=36 ps=24
+
+
+.include mosistsmc180.sp
+
+.end
+   
+
